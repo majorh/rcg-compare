@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal Caribbean Group — Complete 2026 Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rcl-blue: #003087;
+    --rcl-gold: #c8a84b;
+    --cel-teal: #006272;
+    --cel-gold: #b8922a;
+    --bg: #0a0e1a;
+    --bg2: #111827;
+    --bg3: #1a2235;
+    --card: #1e2d45;
+    --border: rgba(200,168,75,0.18);
+    --text: #e8eaf0;
+    --muted: #8a9ab5;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #02051a 0%, #0a0f2e 50%, #040818 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(0,48,135,0.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 50%, rgba(0,98,114,0.25) 0%, transparent 60%);
+  }
+  .header-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 48px 32px 40px;
+    text-align: center;
+  }
+  .crown-icon {
+    font-size: 3rem;
+    margin-bottom: 12px;
+    display: block;
+    filter: drop-shadow(0 0 20px rgba(200,168,75,0.5));
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #fff 30%, var(--rcl-gold) 65%, #e8c96a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  header p {
+    color: var(--muted);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* BRAND BADGES */
+  .brand-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .brand-badge {
+    padding: 6px 20px;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .badge-rcl {
+    background: rgba(0,48,135,0.3);
+    border: 1px solid rgba(0,48,135,0.7);
+    color: #6ba3ff;
+  }
+  .badge-cel {
+    background: rgba(0,98,114,0.3);
+    border: 1px solid rgba(0,98,114,0.7);
+    color: #5dd4e0;
+  }
+  .badge-rcl:hover { background: rgba(0,48,135,0.5); }
+  .badge-cel:hover { background: rgba(0,98,114,0.5); }
+
+  /* NAV TABS */
+  .nav-wrapper {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-tabs {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .nav-tab {
+    padding: 16px 24px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+    background: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    outline: none;
+  }
+  .nav-tab:hover { color: var(--text); }
+  .nav-tab.active {
+    color: var(--rcl-gold);
+    border-bottom-color: var(--rcl-gold);
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 48px 24px;
+  }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* SECTION HEADER */
+  .section-header {
+    margin-bottom: 40px;
+  }
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rcl-gold);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+  }
+  .section-desc {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 700px;
+    line-height: 1.65;
+  }
+
+  /* BRAND SPLIT LAYOUT */
+  .brand-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  @media (max-width: 900px) {
+    .brand-split { grid-template-columns: 1fr; }
+  }
+
+  /* BRAND COLUMN */
+  .brand-col {
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .brand-col-header {
+    padding: 20px 24px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .brand-col-header.rcl { background: linear-gradient(135deg, rgba(0,48,135,0.6) 0%, rgba(0,48,135,0.3) 100%); border: 1px solid rgba(0,80,200,0.3); border-bottom: none; }
+  .brand-col-header.cel { background: linear-gradient(135deg, rgba(0,98,114,0.6) 0%, rgba(0,98,114,0.3) 100%); border: 1px solid rgba(0,140,165,0.3); border-bottom: none; }
+  .brand-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 900;
+    font-family: 'Playfair Display', serif;
+  }
+  .brand-logo.rcl { background: var(--rcl-blue); color: var(--rcl-gold); }
+  .brand-logo.cel { background: var(--cel-teal); color: #fff; }
+  .brand-col-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .brand-col-header .subtitle {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+  .brand-col-body {
+    padding: 0 0 4px;
+  }
+  .brand-col-body.rcl { background: rgba(0,20,60,0.5); border: 1px solid rgba(0,80,200,0.3); border-top: none; border-radius: 0 0 16px 16px; }
+  .brand-col-body.cel { background: rgba(0,30,40,0.5); border: 1px solid rgba(0,140,165,0.3); border-top: none; border-radius: 0 0 16px 16px; }
+
+  /* SHIPS TABLE */
+  .ships-table { width: 100%; border-collapse: collapse; }
+  .ships-table th {
+    padding: 10px 16px;
+    text-align: left;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  .ships-table td {
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top;
+  }
+  .ships-table tr:last-child td { border-bottom: none; }
+  .ships-table tr:hover td { background: rgba(255,255,255,0.025); }
+
+  .ship-name { font-weight: 600; color: var(--white); }
+  .ship-class {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-top: 3px;
+  }
+  .class-icon { background: rgba(0,48,135,0.4); color: #6ba3ff; border: 1px solid rgba(0,80,200,0.4); }
+  .class-oasis { background: rgba(139,92,246,0.3); color: #c4b5fd; border: 1px solid rgba(139,92,246,0.4); }
+  .class-quantum { background: rgba(16,185,129,0.2); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.3); }
+  .class-voyager { background: rgba(245,158,11,0.2); color: #fcd34d; border: 1px solid rgba(245,158,11,0.3); }
+  .class-freedom { background: rgba(239,68,68,0.2); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
+  .class-radiance { background: rgba(236,72,153,0.2); color: #f9a8d4; border: 1px solid rgba(236,72,153,0.3); }
+  .class-vision { background: rgba(107,114,128,0.3); color: #d1d5db; border: 1px solid rgba(107,114,128,0.4); }
+  .class-edge { background: rgba(0,98,114,0.4); color: #5dd4e0; border: 1px solid rgba(0,140,165,0.4); }
+  .class-solstice { background: rgba(16,185,129,0.2); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.3); }
+  .class-millennium { background: rgba(245,158,11,0.2); color: #fcd34d; border: 1px solid rgba(245,158,11,0.3); }
+
+  .location-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin: 1px;
+  }
+
+  /* TIER CARDS */
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .tier-card {
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .tier-card:hover { transform: translateY(-2px); }
+  .tier-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  /* RCL tier colors */
+  .tier-gold { background: rgba(30,20,5,0.8); border: 1px solid rgba(200,168,75,0.3); }
+  .tier-gold::before { background: linear-gradient(90deg, #c8a84b, #f0d060); }
+  .tier-platinum { background: rgba(25,25,35,0.8); border: 1px solid rgba(180,180,220,0.3); }
+  .tier-platinum::before { background: linear-gradient(90deg, #a0a8c8, #d0d8f0); }
+  .tier-emerald { background: rgba(5,25,15,0.8); border: 1px solid rgba(52,211,153,0.3); }
+  .tier-emerald::before { background: linear-gradient(90deg, #10b981, #34d399); }
+  .tier-diamond { background: rgba(5,10,30,0.8); border: 1px solid rgba(147,197,253,0.3); }
+  .tier-diamond::before { background: linear-gradient(90deg, #3b82f6, #93c5fd); }
+  .tier-diamondplus { background: rgba(15,5,35,0.8); border: 1px solid rgba(196,181,253,0.3); }
+  .tier-diamondplus::before { background: linear-gradient(90deg, #8b5cf6, #c4b5fd); }
+  .tier-pinnacle { background: linear-gradient(135deg, rgba(40,20,5,0.9), rgba(60,30,5,0.8)); border: 1px solid rgba(251,191,36,0.5); }
+  .tier-pinnacle::before { background: linear-gradient(90deg, #f59e0b, #fbbf24, #fde68a); }
+
+  /* Celebrity tier colors */
+  .tier-preview { background: rgba(20,20,20,0.8); border: 1px solid rgba(150,150,150,0.3); }
+  .tier-preview::before { background: linear-gradient(90deg, #6b7280, #9ca3af); }
+  .tier-classic { background: rgba(20,25,10,0.8); border: 1px solid rgba(134,239,172,0.25); }
+  .tier-classic::before { background: linear-gradient(90deg, #22c55e, #86efac); }
+  .tier-select { background: rgba(5,20,30,0.8); border: 1px solid rgba(125,211,252,0.25); }
+  .tier-select::before { background: linear-gradient(90deg, #0ea5e9, #7dd3fc); }
+  .tier-elite { background: rgba(20,5,30,0.8); border: 1px solid rgba(216,180,254,0.3); }
+  .tier-elite::before { background: linear-gradient(90deg, #a855f7, #d8b4fe); }
+  .tier-eliteplus { background: rgba(30,5,30,0.8); border: 1px solid rgba(249,168,212,0.3); }
+  .tier-eliteplus::before { background: linear-gradient(90deg, #ec4899, #f9a8d4); }
+  .tier-zenith { background: linear-gradient(135deg, rgba(40,20,5,0.9), rgba(60,30,5,0.8)); border: 1px solid rgba(251,191,36,0.5); }
+  .tier-zenith::before { background: linear-gradient(90deg, #f59e0b, #fbbf24, #fde68a); }
+
+  .tier-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .tier-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .tier-points {
+    text-align: right;
+  }
+  .tier-points .pts {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--rcl-gold);
+  }
+  .tier-points .pts-label {
+    font-size: 0.65rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: block;
+  }
+  .tier-stat {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 12px;
+    padding: 6px 10px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 6px;
+    border-left: 2px solid rgba(255,255,255,0.1);
+  }
+  .tier-benefits {
+    list-style: none;
+    space-y: 4px;
+  }
+  .tier-benefits li {
+    font-size: 0.8rem;
+    color: var(--text);
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.4;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .tier-benefits li:last-child { border-bottom: none; }
+  .tier-benefits li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    font-size: 0.5rem;
+    top: 6px;
+    color: var(--rcl-gold);
+    opacity: 0.7;
+  }
+
+  /* CASINO SECTION */
+  .casino-tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  .tier-choice { background: rgba(20,20,20,0.8); border: 1px solid rgba(150,150,150,0.3); }
+  .tier-choice::before { background: linear-gradient(90deg, #6b7280, #9ca3af); }
+  .tier-prime { background: rgba(5,20,30,0.8); border: 1px solid rgba(125,211,252,0.25); }
+  .tier-prime::before { background: linear-gradient(90deg, #0ea5e9, #7dd3fc); }
+  .tier-signature { background: rgba(30,5,30,0.8); border: 1px solid rgba(216,180,254,0.3); }
+  .tier-signature::before { background: linear-gradient(90deg, #a855f7, #d8b4fe); }
+  .tier-masters { background: linear-gradient(135deg, rgba(40,20,5,0.9), rgba(60,30,5,0.8)); border: 1px solid rgba(251,191,36,0.5); }
+  .tier-masters::before { background: linear-gradient(90deg, #f59e0b, #fbbf24, #fde68a); }
+
+  .tier-pearl { background: rgba(20,20,20,0.8); border: 1px solid rgba(150,150,150,0.3); }
+  .tier-pearl::before { background: linear-gradient(90deg, #6b7280, #9ca3af); }
+  .tier-onyx { background: rgba(10,10,10,0.8); border: 1px solid rgba(100,100,100,0.4); }
+  .tier-onyx::before { background: linear-gradient(90deg, #374151, #6b7280); }
+  .tier-amethyst { background: rgba(20,5,30,0.8); border: 1px solid rgba(196,181,253,0.3); }
+  .tier-amethyst::before { background: linear-gradient(90deg, #7c3aed, #c4b5fd); }
+  .tier-sapphire { background: rgba(5,10,30,0.8); border: 1px solid rgba(147,197,253,0.3); }
+  .tier-sapphire::before { background: linear-gradient(90deg, #2563eb, #93c5fd); }
+  .tier-sapphireplus { background: rgba(5,5,35,0.8); border: 1px solid rgba(165,180,252,0.35); }
+  .tier-sapphireplus::before { background: linear-gradient(90deg, #4f46e5, #a5b4fc); }
+  .tier-ruby { background: linear-gradient(135deg, rgba(40,5,5,0.9), rgba(60,10,10,0.8)); border: 1px solid rgba(252,165,165,0.4); }
+  .tier-ruby::before { background: linear-gradient(90deg, #dc2626, #fca5a5); }
+
+  /* COMPARISON TABLE */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 16px;
+  }
+  .compare-table thead tr {
+    background: linear-gradient(135deg, rgba(0,48,135,0.4), rgba(0,98,114,0.4));
+  }
+  .compare-table th {
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-table th:first-child { color: var(--muted); }
+  .compare-table td {
+    padding: 14px 20px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+  .compare-table tr:hover td { background: rgba(255,255,255,0.04); }
+  .compare-table td:first-child {
+    font-weight: 600;
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .compare-table td.rcl-col { border-left: 2px solid rgba(0,80,200,0.3); }
+  .compare-table td.cel-col { border-left: 2px solid rgba(0,140,165,0.3); }
+
+  /* STATUS MATCH BOX */
+  .match-box {
+    background: linear-gradient(135deg, rgba(200,168,75,0.08), rgba(200,168,75,0.03));
+    border: 1px solid rgba(200,168,75,0.25);
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 32px;
+  }
+  .match-box h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--rcl-gold);
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+  }
+  .match-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .match-table th {
+    padding: 8px 14px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .match-table td {
+    padding: 10px 14px;
+    font-size: 0.83rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .match-table td:first-child { color: #6ba3ff; font-weight: 600; }
+  .match-table td:nth-child(2) { color: #5dd4e0; }
+  .match-arrow { color: var(--rcl-gold); text-align: center; }
+
+  /* INFO BOX */
+  .info-box {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 20px;
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .info-box strong { color: var(--text); }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 40px 0;
+  }
+
+  /* OVERVIEW CARDS */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .ov-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .ov-card .big {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--rcl-gold);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .ov-card .label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .ov-card .sub {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* QUICK NOTE */
+  .note {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 12px;
+    font-style: italic;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .header-inner { padding: 32px 16px 28px; }
+    .content { padding: 32px 16px; }
+    .tiers-grid { grid-template-columns: 1fr; }
+    .brand-split { grid-template-columns: 1fr; }
+  }
+
+  /* Animations */
+  .section.active .tier-card,
+  .section.active .ov-card {
+    animation: fadeUp 0.4s ease both;
+  }
+  .section.active .tier-card:nth-child(2) { animation-delay: 0.05s; }
+  .section.active .tier-card:nth-child(3) { animation-delay: 0.1s; }
+  .section.active .tier-card:nth-child(4) { animation-delay: 0.15s; }
+  .section.active .tier-card:nth-child(5) { animation-delay: 0.2s; }
+  .section.active .tier-card:nth-child(6) { animation-delay: 0.25s; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .highlight { color: var(--rcl-gold); font-weight: 600; }
+  .cel-highlight { color: #5dd4e0; font-weight: 600; }
+
+  .tag-new {
+    display: inline-block;
+    background: rgba(251,191,36,0.2);
+    border: 1px solid rgba(251,191,36,0.5);
+    color: #fbbf24;
+    font-size: 0.62rem;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <span class="crown-icon">⚓</span>
+    <h1>Royal Caribbean Group<br>Complete 2026 Guide</h1>
+    <p>Ships · Loyalty · Casino Rewards — Side by Side</p>
+    <div class="brand-row">
+      <span class="brand-badge badge-rcl">Royal Caribbean International</span>
+      <span class="brand-badge badge-cel">Celebrity Cruises</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-wrapper">
+  <div class="nav-tabs" id="navTabs">
+    <button class="nav-tab active" onclick="showSection('overview', this)">Overview</button>
+    <button class="nav-tab" onclick="showSection('rcl-ships', this)">RCL Ships 2026</button>
+    <button class="nav-tab" onclick="showSection('cel-ships', this)">Celebrity Ships 2026</button>
+    <button class="nav-tab" onclick="showSection('rcl-loyalty', this)">Crown & Anchor</button>
+    <button class="nav-tab" onclick="showSection('cel-loyalty', this)">Captain's Club</button>
+    <button class="nav-tab" onclick="showSection('rcl-casino', this)">Club Royale</button>
+    <button class="nav-tab" onclick="showSection('cel-casino', this)">Blue Chip Club</button>
+    <button class="nav-tab" onclick="showSection('compare', this)">Side-by-Side</button>
+  </div>
+</nav>
+
+<div class="content">
+
+  <!-- OVERVIEW -->
+  <section id="overview" class="section active">
+    <div class="section-header">
+      <div class="section-label">Royal Caribbean Group — 2026</div>
+      <h2 class="section-title">Everything at a Glance</h2>
+      <p class="section-desc">Royal Caribbean Group operates two of the world's most popular cruise brands. This guide covers 2026 sailings, loyalty program tiers, and casino rewards for both Royal Caribbean International and Celebrity Cruises.</p>
+    </div>
+
+    <div class="overview-grid">
+      <div class="ov-card">
+        <span class="big">30</span>
+        <div class="label">RCL Ships in 2026</div>
+        <div class="sub">Legend of the Seas joins fleet mid-2026</div>
+      </div>
+      <div class="ov-card">
+        <span class="big">15</span>
+        <div class="label">Celebrity Ships in 2026</div>
+        <div class="sub">Celebrity Xcel joins Nov 2025</div>
+      </div>
+      <div class="ov-card">
+        <span class="big">6</span>
+        <div class="label">Crown & Anchor Tiers</div>
+        <div class="sub">Gold → Pinnacle Club</div>
+      </div>
+      <div class="ov-card">
+        <span class="big">6</span>
+        <div class="label">Captain's Club Tiers</div>
+        <div class="sub">Preview → Zenith</div>
+      </div>
+      <div class="ov-card">
+        <span class="big">4</span>
+        <div class="label">Club Royale Tiers</div>
+        <div class="sub">Choice → Masters</div>
+      </div>
+      <div class="ov-card">
+        <span class="big">6</span>
+        <div class="label">Blue Chip Club Tiers</div>
+        <div class="sub">Pearl → Ruby</div>
+      </div>
+      <div class="ov-card">
+        <span class="big">700</span>
+        <div class="label">Pts for Pinnacle Club</div>
+        <div class="sub">Includes a free 7-night cruise</div>
+      </div>
+      <div class="ov-card">
+        <span class="big">3,000</span>
+        <div class="label">Pts for Zenith Free Cruise</div>
+        <div class="sub">7-night Caribbean / Bermuda</div>
+      </div>
+    </div>
+
+    <div class="match-box" style="margin-top:40px;">
+      <h3>⇄ Status Match: All Three Brands Linked (June 2024+)</h3>
+      <p style="font-size:0.85rem; color:var(--muted); margin-bottom:16px;">Earn points on any RCG brand and receive matching status across Royal Caribbean, Celebrity Cruises, and Silversea. Status is one-for-one across all three.</p>
+      <table class="match-table">
+        <thead>
+          <tr>
+            <th>Royal Caribbean (Crown & Anchor)</th>
+            <th class="match-arrow">↔</th>
+            <th>Celebrity Cruises (Captain's Club)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Gold (3–29 pts)</td><td class="match-arrow">↔</td><td>Classic (2–149 pts)</td></tr>
+          <tr><td>Platinum (30–54 pts)</td><td class="match-arrow">↔</td><td>Select (150–299 pts)</td></tr>
+          <tr><td>Emerald (55–79 pts)</td><td class="match-arrow">↔</td><td>Select (150–299 pts)</td></tr>
+          <tr><td>Diamond (80–174 pts)</td><td class="match-arrow">↔</td><td>Elite (300–749 pts)</td></tr>
+          <tr><td>Diamond Plus (175–699 pts)</td><td class="match-arrow">↔</td><td>Elite Plus (750–2,999 pts)</td></tr>
+          <tr><td>Pinnacle Club (700+ pts)</td><td class="match-arrow">↔</td><td>Zenith (3,000+ pts)</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Points earned on each brand count toward that brand's loyalty program only. Status is matched, not points.</p>
+    </div>
+
+    <div class="info-box" style="margin-top:24px;">
+      <strong>Points Choice (New 2026):</strong> Royal Caribbean Group now offers "Points Choice" — members can choose to apply cruise points earned on any RCG brand (Royal Caribbean, Celebrity, or Silversea) toward the loyalty program of their choice. This allows guests to build status on a single preferred program faster. <em>Note: Does not apply to casino programs (Club Royale / Blue Chip Club).</em>
+    </div>
+  </section>
+
+  <!-- RCL SHIPS -->
+  <section id="rcl-ships" class="section">
+    <div class="section-header">
+      <div class="section-label">Royal Caribbean International</div>
+      <h2 class="section-title">2026 Fleet & Sailings</h2>
+      <p class="section-desc">30 ships across 9 classes sail to Caribbean, Europe, Alaska, Asia, Australia, and beyond. New in 2026: <strong>Legend of the Seas</strong> (Icon Class) debuts summer 2026.</p>
+    </div>
+
+    <div style="overflow-x:auto; border-radius:14px; border:1px solid var(--border);">
+      <table class="ships-table">
+        <thead>
+          <tr>
+            <th>Ship</th>
+            <th>Class</th>
+            <th>Capacity</th>
+            <th>2026 Homeport(s)</th>
+            <th>Primary Regions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ICON CLASS -->
+          <tr><td><span class="ship-name">Icon of the Seas</span> <span class="tag-new">2024</span></td><td><span class="ship-class class-icon">Icon</span></td><td>5,610</td><td>Miami, FL</td><td><span class="location-tag">Eastern Caribbean</span><span class="location-tag">Western Caribbean</span></td></tr>
+          <tr><td><span class="ship-name">Star of the Seas</span> <span class="tag-new">2025</span></td><td><span class="ship-class class-icon">Icon</span></td><td>5,610</td><td>Port Canaveral, FL</td><td><span class="location-tag">Eastern Caribbean</span><span class="location-tag">Western Caribbean</span></td></tr>
+          <tr><td><span class="ship-name">Legend of the Seas</span> <span class="tag-new">2026</span></td><td><span class="ship-class class-icon">Icon</span></td><td>5,600</td><td>Barcelona (Summer) → Ft. Lauderdale (Winter)</td><td><span class="location-tag">Mediterranean</span><span class="location-tag">Caribbean</span></td></tr>
+          <!-- OASIS CLASS -->
+          <tr><td><span class="ship-name">Wonder of the Seas</span></td><td><span class="ship-class class-oasis">Oasis</span></td><td>5,734</td><td>Miami, FL</td><td><span class="location-tag">Bahamas (3–4 night)</span></td></tr>
+          <tr><td><span class="ship-name">Utopia of the Seas</span></td><td><span class="ship-class class-oasis">Oasis</span></td><td>5,668</td><td>Port Canaveral, FL</td><td><span class="location-tag">Bahamas (3–4 night)</span></td></tr>
+          <tr><td><span class="ship-name">Symphony of the Seas</span></td><td><span class="ship-class class-oasis">Oasis</span></td><td>5,518</td><td>Miami → Galveston, TX</td><td><span class="location-tag">Caribbean</span><span class="location-tag">Western Caribbean</span></td></tr>
+          <tr><td><span class="ship-name">Harmony of the Seas</span></td><td><span class="ship-class class-oasis">Oasis</span></td><td>5,479</td><td>Tampa, FL / Galveston, TX</td><td><span class="location-tag">Western Caribbean</span></td></tr>
+          <tr><td><span class="ship-name">Allure of the Seas</span></td><td><span class="ship-class class-oasis">Oasis</span></td><td>5,400</td><td>Ft. Lauderdale / Bayonne, NJ</td><td><span class="location-tag">Caribbean</span><span class="location-tag">Bahamas</span></td></tr>
+          <tr><td><span class="ship-name">Oasis of the Seas</span></td><td><span class="ship-class class-oasis">Oasis</span></td><td>5,400</td><td>Ft. Lauderdale / Bayonne, NJ</td><td><span class="location-tag">Caribbean</span><span class="location-tag">Bahamas</span></td></tr>
+          <!-- QUANTUM CLASS -->
+          <tr><td><span class="ship-name">Anthem of the Seas</span></td><td><span class="ship-class class-quantum">Quantum</span></td><td>4,905</td><td>Sydney, AU → Seattle, WA</td><td><span class="location-tag">Australia</span><span class="location-tag">Alaska</span><span class="location-tag">Asia</span></td></tr>
+          <tr><td><span class="ship-name">Ovation of the Seas</span></td><td><span class="ship-class class-quantum">Quantum Ultra</span></td><td>4,905</td><td>Sydney, AU / Seattle</td><td><span class="location-tag">Australia</span><span class="location-tag">Alaska</span><span class="location-tag">Mexico</span></td></tr>
+          <tr><td><span class="ship-name">Quantum of the Seas</span></td><td><span class="ship-class class-quantum">Quantum</span></td><td>4,905</td><td>Singapore / Hong Kong</td><td><span class="location-tag">Asia</span></td></tr>
+          <tr><td><span class="ship-name">Spectrum of the Seas</span></td><td><span class="ship-class class-quantum">Quantum Ultra</span></td><td>4,246</td><td>Shanghai / Tokyo</td><td><span class="location-tag">Asia</span><span class="location-tag">Japan</span></td></tr>
+          <tr><td><span class="ship-name">Odyssey of the Seas</span></td><td><span class="ship-class class-quantum">Quantum Ultra</span></td><td>4,246</td><td>Bayonne, NJ / Ft. Lauderdale</td><td><span class="location-tag">Bermuda</span><span class="location-tag">Caribbean</span></td></tr>
+          <!-- VOYAGER CLASS -->
+          <tr><td><span class="ship-name">Wonder… (see Oasis)</span></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td><span class="ship-name">Explorer of the Seas</span></td><td><span class="ship-class class-voyager">Voyager</span></td><td>3,807</td><td>Ravenna, Italy</td><td><span class="location-tag">Mediterranean</span><span class="location-tag">Greek Isles</span></td></tr>
+          <tr><td><span class="ship-name">Voyager of the Seas</span></td><td><span class="ship-class class-voyager">Voyager</span></td><td>3,807</td><td>Singapore</td><td><span class="location-tag">Asia</span><span class="location-tag">Australia</span></td></tr>
+          <tr><td><span class="ship-name">Navigator of the Seas</span></td><td><span class="ship-class class-voyager">Voyager</span></td><td>3,807</td><td>Los Angeles, CA</td><td><span class="location-tag">Mexico</span><span class="location-tag">Hawaii</span></td></tr>
+          <tr><td><span class="ship-name">Mariner of the Seas</span></td><td><span class="ship-class class-voyager">Voyager</span></td><td>3,807</td><td>Port Canaveral / San Juan, PR</td><td><span class="location-tag">Bahamas</span><span class="location-tag">Caribbean</span></td></tr>
+          <!-- FREEDOM CLASS -->
+          <tr><td><span class="ship-name">Independence of the Seas</span></td><td><span class="ship-class class-freedom">Freedom</span></td><td>4,375</td><td>Southampton, UK</td><td><span class="location-tag">Northern Europe</span><span class="location-tag">Iberia</span></td></tr>
+          <tr><td><span class="ship-name">Liberty of the Seas</span></td><td><span class="ship-class class-freedom">Freedom</span></td><td>3,939</td><td>Galveston, TX</td><td><span class="location-tag">Western Caribbean</span></td></tr>
+          <tr><td><span class="ship-name">Freedom of the Seas</span></td><td><span class="ship-class class-freedom">Freedom</span></td><td>3,634</td><td>San Juan, PR</td><td><span class="location-tag">Southern Caribbean</span></td></tr>
+          <!-- RADIANCE CLASS -->
+          <tr><td><span class="ship-name">Brilliance of the Seas</span></td><td><span class="ship-class class-radiance">Radiance</span></td><td>2,501</td><td>Barcelona / Southampton</td><td><span class="location-tag">Mediterranean</span><span class="location-tag">Northern Europe</span></td></tr>
+          <tr><td><span class="ship-name">Radiance of the Seas</span></td><td><span class="ship-class class-radiance">Radiance</span></td><td>2,143</td><td>Vancouver, BC / Auckland, NZ</td><td><span class="location-tag">Alaska</span><span class="location-tag">Hawaii</span><span class="location-tag">New Zealand</span></td></tr>
+          <tr><td><span class="ship-name">Jewel of the Seas</span></td><td><span class="ship-class class-radiance">Radiance</span></td><td>2,143</td><td>Port Canaveral / Dubai</td><td><span class="location-tag">Caribbean</span><span class="location-tag">Middle East</span></td></tr>
+          <tr><td><span class="ship-name">Serenade of the Seas</span></td><td><span class="ship-class class-radiance">Radiance</span></td><td>2,501</td><td>Baltimore / San Diego (Oct 2026)</td><td><span class="location-tag">Bermuda</span><span class="location-tag">Canada</span><span class="location-tag">Pacific</span></td></tr>
+          <!-- VISION CLASS -->
+          <tr><td><span class="ship-name">Enchantment of the Seas</span></td><td><span class="ship-class class-vision">Vision</span></td><td>2,252</td><td>Baltimore / Tampa, FL</td><td><span class="location-tag">Caribbean</span><span class="location-tag">Bahamas</span></td></tr>
+          <tr><td><span class="ship-name">Grandeur of the Seas</span></td><td><span class="ship-class class-vision">Vision</span></td><td>1,950</td><td>Baltimore, MD</td><td><span class="location-tag">Caribbean</span><span class="location-tag">Canada/New England</span></td></tr>
+          <tr><td><span class="ship-name">Vision of the Seas</span></td><td><span class="ship-class class-vision">Vision</span></td><td>2,000</td><td>San Juan, PR (from Nov 2026)</td><td><span class="location-tag">Southern Caribbean</span><span class="location-tag">Bahamas</span></td></tr>
+          <tr><td><span class="ship-name">Rhapsody of the Seas</span></td><td><span class="ship-class class-vision">Vision</span></td><td>2,000</td><td>San Juan, PR (from Nov 2026)</td><td><span class="location-tag">Southern Caribbean</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">* Itineraries may vary by season. "Quantum Ultra" is a Quantum sub-class. All capacities shown at double occupancy. 2026 fleet = 30 ships with Legend of the Seas debut.</p>
+  </section>
+
+  <!-- CELEBRITY SHIPS -->
+  <section id="cel-ships" class="section">
+    <div class="section-header">
+      <div class="section-label">Celebrity Cruises</div>
+      <h2 class="section-title">2026 Fleet & Sailings</h2>
+      <p class="section-desc">15 ships across 4 classes (Edge, Solstice, Millennium, Expedition). <strong>Celebrity Xcel</strong> (Edge Class) debuted November 2025, sailing Mediterranean in 2026.</p>
+    </div>
+
+    <div style="overflow-x:auto; border-radius:14px; border:1px solid rgba(0,140,165,0.25);">
+      <table class="ships-table">
+        <thead>
+          <tr>
+            <th>Ship</th>
+            <th>Class</th>
+            <th>Capacity</th>
+            <th>2026 Homeport(s)</th>
+            <th>Primary Regions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- EDGE CLASS -->
+          <tr><td><span class="ship-name">Celebrity Xcel</span> <span class="tag-new">2025</span></td><td><span class="ship-class class-edge">Edge</span></td><td>3,260</td><td>Barcelona / Piraeus (Mediterranean)</td><td><span class="location-tag">Mediterranean</span><span class="location-tag">Canary Islands/Madeira</span></td></tr>
+          <tr><td><span class="ship-name">Celebrity Ascent</span></td><td><span class="ship-class class-edge">Edge</span></td><td>3,260</td><td>Ft. Lauderdale / Southampton</td><td><span class="location-tag">Caribbean</span><span class="location-tag">Europe</span></td></tr>
+          <tr><td><span class="ship-name">Celebrity Beyond</span></td><td><span class="ship-class class-edge">Edge</span></td><td>2,910</td><td>Barcelona / Ft. Lauderdale</td><td><span class="location-tag">Mediterranean</span><span class="location-tag">Caribbean</span></td></tr>
+          <tr><td><span class="ship-name">Celebrity Apex</span></td><td><span class="ship-class class-edge">Edge</span></td><td>2,918</td><td>Southampton / Piraeus</td><td><span class="location-tag">Europe</span><span class="location-tag">Greek Isles</span></td></tr>
+          <tr><td><span class="ship-name">Celebrity Edge</span></td><td><span class="ship-class class-edge">Edge</span></td><td>2,918</td><td>Seward, AK / Sydney, AU</td><td><span class="location-tag">Alaska</span><span class="location-tag">Australia</span></td></tr>
+          <!-- SOLSTICE CLASS -->
+          <tr><td><span class="ship-name">Celebrity Reflection</span></td><td><span class="ship-class class-solstice">Solstice</span></td><td>3,046</td><td>Ft. Lauderdale</td><td><span class="location-tag">Caribbean</span><span class="location-tag">Bahamas (CocoCay)</span></td></tr>
+          <tr><td><span class="ship-name">Celebrity Silhouette</span></td><td><span class="ship-class class-solstice">Solstice</span></td><td>2,886</td><td>Southampton / Cape Liberty, NJ</td><td><span class="location-tag">Northern Europe</span><span class="location-tag">Bermuda</span><span class="location-tag">Canada/NE</span></td></tr>
+          <tr><td><span class="ship-name">Celebrity Eclipse</span></td><td><span class="ship-class class-solstice">Solstice</span></td><td>2,852</td><td>Vancouver, BC / Sydney, AU</td><td><span class="location-tag">Alaska</span><span class="location-tag">Australia</span><span class="location-tag">New Zealand</span></td></tr>
+          <tr><td><span class="ship-name">Celebrity Equinox</span></td><td><span class="ship-class class-solstice">Solstice</span></td><td>2,852</td><td>Ft. Lauderdale</td><td><span class="location-tag">Caribbean</span></td></tr>
+          <tr><td><span class="ship-name">Celebrity Solstice</span></td><td><span class="ship-class class-solstice">Solstice</span></td><td>2,850</td><td>Seattle, WA / Singapore</td><td><span class="location-tag">Alaska</span><span class="location-tag">Southeast Asia</span></td></tr>
+          <!-- MILLENNIUM CLASS -->
+          <tr><td><span class="ship-name">Celebrity Summit</span></td><td><span class="ship-class class-millennium">Millennium</span></td><td>2,218</td><td>Seward, AK / Ft. Lauderdale</td><td><span class="location-tag">Alaska</span><span class="location-tag">Caribbean</span></td></tr>
+          <tr><td><span class="ship-name">Celebrity Constellation</span></td><td><span class="ship-class class-millennium">Millennium</span></td><td>2,218</td><td>Barcelona / Civitavecchia</td><td><span class="location-tag">Mediterranean</span></td></tr>
+          <tr><td><span class="ship-name">Celebrity Infinity</span></td><td><span class="ship-class class-millennium">Millennium</span></td><td>2,218</td><td>Athens / Barcelona</td><td><span class="location-tag">Greek Isles</span><span class="location-tag">European Rivers</span></td></tr>
+          <tr><td><span class="ship-name">Celebrity Millennium</span></td><td><span class="ship-class class-millennium">Millennium</span></td><td>2,218</td><td>Tokyo (Narita), Japan</td><td><span class="location-tag">Japan</span><span class="location-tag">South Korea</span><span class="location-tag">Asia</span></td></tr>
+          <!-- EXPEDITION -->
+          <tr><td><span class="ship-name">Celebrity Flora</span></td><td><span class="ship-class class-radiance">Expedition</span></td><td>100</td><td>Galapagos Islands</td><td><span class="location-tag">Galapagos Islands</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">* Celebrity Xpedition and Xploration sold to Lindblad Expeditions in 2025. Celebrity Xcel introduced Celebrity's first Mediterranean overnights in Madeira. 9 ships in the Caribbean in 2026 visiting 31 destinations across 18 countries.</p>
+  </section>
+
+  <!-- RCL LOYALTY -->
+  <section id="rcl-loyalty" class="section">
+    <div class="section-header">
+      <div class="section-label">Royal Caribbean International</div>
+      <h2 class="section-title">Crown & Anchor Society</h2>
+      <p class="section-desc">Earn 1 point per night sailed. Suite guests earn 2 points per night. Complimentary upgrades do not earn double points. Benefits are cumulative as you move up tiers.</p>
+    </div>
+
+    <div class="info-box">
+      <strong>How Points Work:</strong> 1 Cruise Point = 1 night in a standard cabin. 2 points/night in a suite (when booked at suite rate). Solo travelers paying double occupancy also earn 2 points/night. Kids under 18 may share family status until age 18, but cannot reach Pinnacle on family points alone.
+    </div>
+
+    <div class="tiers-grid" style="margin-top:28px;">
+      <div class="tier-card tier-gold">
+        <div class="tier-header">
+          <div class="tier-name">🥇 Gold</div>
+          <div class="tier-points"><span class="pts">3–29</span><span class="pts-label">cruise pts</span></div>
+        </div>
+        <div class="tier-stat">⚓ ~1 cruise (3-night) to qualify • 1 short getaway</div>
+        <ul class="tier-benefits">
+          <li>50% off wine, beer, or soda (2 coupons/sailing)</li>
+          <li>50% off Johnny Rockets milkshake (select ships, 2/sailing)</li>
+          <li>10% off any glass of wine, beer, or soda</li>
+          <li>25% off any coffee beverage (excl. Starbucks)</li>
+          <li>10% off internet package (VOOM)</li>
+          <li>10% off Royal Caribbean logo items ($25+ purchase)</li>
+          <li>10% off spa service (excl. Medi-Spa)</li>
+          <li>Access to Crown & Anchor loyalty desk</li>
+          <li>Priority departure lounge with continental breakfast</li>
+          <li>Crown & Anchor exclusive rates on select sailings</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-platinum">
+        <div class="tier-header">
+          <div class="tier-name">⬜ Platinum</div>
+          <div class="tier-points"><span class="pts">30–54</span><span class="pts-label">cruise pts</span></div>
+        </div>
+        <div class="tier-stat">⚓ ~5 seven-night cruises in standard cabin to reach this tier</div>
+        <ul class="tier-benefits">
+          <li><em>All Gold benefits, plus:</em></li>
+          <li>50% off coffee beverages (excl. Starbucks, 2 coupons)</li>
+          <li>15% off internet package (VOOM)</li>
+          <li>15% off spa services (excl. Medi-Spa)</li>
+          <li>$5 off wash-and-fold laundry bag</li>
+          <li>20% off single photo, photo package, or photobook</li>
+          <li>Buy specialty dinner → free non-alcoholic coffee</li>
+          <li>Robes delivered to your cabin</li>
+          <li>Access to exclusive Top Tier Event (5+ night sailings)</li>
+          <li>Status match: Celebrity Captain's Club Select level</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-emerald">
+        <div class="tier-header">
+          <div class="tier-name">💚 Emerald</div>
+          <div class="tier-points"><span class="pts">55–79</span><span class="pts-label">cruise pts</span></div>
+        </div>
+        <div class="tier-stat">⚓ ~8 seven-night standard-cabin cruises to reach this tier</div>
+        <ul class="tier-benefits">
+          <li><em>All Platinum benefits, plus:</em></li>
+          <li>2 bottles of water delivered to cabin at start of voyage</li>
+          <li>25% off single photo, photo package, or photobook</li>
+          <li>Balcony & suite discounts begin at this tier</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-diamond">
+        <div class="tier-header">
+          <div class="tier-name">💎 Diamond</div>
+          <div class="tier-points"><span class="pts">80–174</span><span class="pts-label">cruise pts</span></div>
+        </div>
+        <div class="tier-stat">⚓ ~12 seven-night standard cruises • Benefits increase significantly here</div>
+        <ul class="tier-benefits">
+          <li><em>All Emerald benefits, plus:</em></li>
+          <li>Access to the Crown Lounge (previously Diamond Lounge)</li>
+          <li><span class="highlight">4 complimentary daily drinks</span> up to $14 value (excl. Starbucks & Bionic Bar)</li>
+          <li>Backstage Tour on sailings 5+ nights</li>
+          <li>20% off balcony cabin booking discount</li>
+          <li>Status match: Celebrity Captain's Club Elite level</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-diamondplus">
+        <div class="tier-header">
+          <div class="tier-name">💠 Diamond Plus</div>
+          <div class="tier-points"><span class="pts">175–699</span><span class="pts-label">cruise pts</span></div>
+        </div>
+        <div class="tier-stat">⚓ ~25 seven-night standard cruises • Milestone: 340 pts unlocks extra sub-perks</div>
+        <ul class="tier-benefits">
+          <li><em>All Diamond benefits, plus:</em></li>
+          <li><span class="highlight">5 complimentary daily drinks</span> up to $14 (excl. Starbucks/Bionic Bar)</li>
+          <li>2 free days of internet</li>
+          <li>1 free bag of wash-and-fold laundry</li>
+          <li>Priority seating: main theater, ice show, AquaTheatre</li>
+          <li>BOGO specialty dinner (first/second night; some exclusions)</li>
+          <li>25% off single glass of wine, beer, or soda (one-time)</li>
+          <li>Family Entertainment Event (masterclass-style, 5+ nights)</li>
+          <li>340+ pts: Cheers with an officer</li>
+          <li>340+ pts: Upgraded bathroom amenities</li>
+          <li>340+ pts: Single supplement reduced to 150% (from 200%)</li>
+          <li>Status match: Celebrity Captain's Club Elite Plus</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-pinnacle">
+        <div class="tier-header">
+          <div class="tier-name">👑 Pinnacle Club</div>
+          <div class="tier-points"><span class="pts">700+</span><span class="pts-label">cruise pts</span></div>
+        </div>
+        <div class="tier-stat">⚓ ~100 seven-night standard cruises • Cannot be achieved via family status — must personally sail 700 nights</div>
+        <ul class="tier-benefits">
+          <li><em>All Diamond Plus benefits, plus:</em></li>
+          <li><span class="highlight">6 complimentary daily drinks</span> up to $13</li>
+          <li><span class="highlight">Complimentary 7-night Caribbean balcony cruise for two</span></li>
+          <li>Additional free cruise every 350 pts (balcony → junior suite after 2)</li>
+          <li>Complimentary specialty dining (every sailing)</li>
+          <li>Pinnacle Club exclusive events with senior officers</li>
+          <li>Crystal block award at 140, 210, 280, 350 pts (and every 70 pts)</li>
+          <li>Dedicated Pinnacle concierge service</li>
+          <li>Priority embarkation and debarkation</li>
+          <li>Status match: Celebrity Captain's Club Zenith</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top:28px;">
+      <strong>Earning Points Faster:</strong> Book a suite from the start (not upgraded into one) to earn 2 points/night. A 7-night suite cruise earns 14 pts vs 7 pts in a standard cabin. Take back-to-back sailings and the "Points Choice" program to stack points across Celebrity and Silversea sailings.
+    </div>
+  </section>
+
+  <!-- CELEBRITY LOYALTY -->
+  <section id="cel-loyalty" class="section">
+    <div class="section-header">
+      <div class="section-label">Celebrity Cruises</div>
+      <h2 class="section-title">Captain's Club</h2>
+      <p class="section-desc">Points earned per night based on cabin category: Inside = 2 pts/night, Oceanview = 3 pts/night, Veranda/Balcony = 3 pts/night, AquaClass/Concierge = 6 pts/night, Sky Suite = 8 pts/night, Penthouse/Royal Suite = 10–24 pts/night. Solo travelers in a stateroom earn double points.</p>
+    </div>
+
+    <div class="info-box">
+      <strong>Power Up Points:</strong> Celebrity offers non-sailing point earning through surveys, social media tasks, and webinars. 10 Power Up Points = 1 Club Point. Available for US, Canada, UK, Ireland, Australia and New Zealand members.
+    </div>
+
+    <div class="tiers-grid" style="margin-top:28px;">
+      <div class="tier-card tier-preview">
+        <div class="tier-header">
+          <div class="tier-name">◽ Preview</div>
+          <div class="tier-points"><span class="pts">0</span><span class="pts-label">club pts — free sign-up</span></div>
+        </div>
+        <div class="tier-stat">🚢 Earned just by enrolling — no sailing required</div>
+        <ul class="tier-benefits">
+          <li>Captain's Club Loyalty Desk service center access</li>
+          <li>Captain's Club newsletter and member communications</li>
+          <li>Ability to book Captain's Club promotions onboard</li>
+          <li>MGM Rewards partnership benefits (on registration)</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-classic">
+        <div class="tier-header">
+          <div class="tier-name">🌿 Classic</div>
+          <div class="tier-points"><span class="pts">2–149</span><span class="pts-label">club pts</span></div>
+        </div>
+        <div class="tier-stat">🚢 1 cruise in any cabin earns Classic status</div>
+        <ul class="tier-benefits">
+          <li>10% off internet packages purchased onboard</li>
+          <li>One scoop of gelato from Gelateria (select ships)</li>
+          <li>Hertz Gold Plus Rewards membership</li>
+          <li>Access to Captain's Club loyalty promotions</li>
+          <li>$20 off entertainment tickets (60+ US cities, code CELEBRITY20)</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-select">
+        <div class="tier-header">
+          <div class="tier-name">🔷 Select</div>
+          <div class="tier-points"><span class="pts">150–299</span><span class="pts-label">club pts</span></div>
+        </div>
+        <div class="tier-stat">🚢 ~8 seven-night cruises in a standard balcony cabin (3 pts/night)</div>
+        <ul class="tier-benefits">
+          <li><em>All Classic benefits, plus:</em></li>
+          <li>25% off internet package onboard</li>
+          <li>30% off digital/print photo packages</li>
+          <li>15% off one bottle of wine at dinner</li>
+          <li>Invitation to exclusive wine tasting event</li>
+          <li>Backstage tour of the ship</li>
+          <li>One standard bag of laundry discounted (12+ night sailings)</li>
+          <li>2 complimentary pressed clothing items</li>
+          <li>Priority shore excursion waitlist</li>
+          <li>Status match: RCL Crown & Anchor Platinum</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-elite">
+        <div class="tier-header">
+          <div class="tier-name">💜 Elite</div>
+          <div class="tier-points"><span class="pts">300–749</span><span class="pts-label">club pts</span></div>
+        </div>
+        <div class="tier-stat">🚢 ~14 to 17 seven-night cruises in a balcony cabin</div>
+        <ul class="tier-benefits">
+          <li><em>All Select benefits, plus:</em></li>
+          <li><span class="cel-highlight">Captain's Club Lounge access</span> — daily coffee-house breakfasts</li>
+          <li>Cocktail hour evenings (except embarkation & officer party night)</li>
+          <li>Complimentary access to Persian Garden (one port day)</li>
+          <li>20% off digital/print photo packages</li>
+          <li>Complimentary laundry (1 bag, wash/dry/fold) all sailings</li>
+          <li>Priority tender service</li>
+          <li>One category stateroom upgrade via AquaClass (availability)</li>
+          <li>Status match: RCL Crown & Anchor Diamond</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-eliteplus">
+        <div class="tier-header">
+          <div class="tier-name">🌸 Elite Plus</div>
+          <div class="tier-points"><span class="pts">750–2,999</span><span class="pts-label">club pts</span></div>
+        </div>
+        <div class="tier-stat">🚢 ~36–40 cruises in a balcony cabin, or fewer in premium suites</div>
+        <ul class="tier-benefits">
+          <li><em>All Elite benefits, plus:</em></li>
+          <li><span class="cel-highlight">2 complimentary bags of laundry</span> (wash, dry, fold) per sailing</li>
+          <li>Premium Beverage Package available as upgrade</li>
+          <li>Dedicated Elite Plus concierge desk onboard</li>
+          <li>Priority embarkation and debarkation</li>
+          <li>Access to exclusive Elite Plus events at sea</li>
+          <li>Enhanced spa discount benefits</li>
+          <li>Status match: RCL Crown & Anchor Diamond Plus</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-zenith">
+        <div class="tier-header">
+          <div class="tier-name">⭐ Zenith</div>
+          <div class="tier-points"><span class="pts">3,000+</span><span class="pts-label">club pts</span></div>
+        </div>
+        <div class="tier-stat">🚢 ~100+ cruises in standard cabins — top tier loyalty recognition</div>
+        <ul class="tier-benefits">
+          <li><em>All Elite Plus benefits, plus:</em></li>
+          <li><span class="cel-highlight">Complimentary 7-night Caribbean/Bermuda cruise</span> (Veranda cabin, for two)</li>
+          <li>Additional free cruise every 3,000 pts thereafter</li>
+          <li>Complimentary Beverage Package every sailing</li>
+          <li>Complimentary laundry every sailing</li>
+          <li>Complimentary Luggage Valet service (ship to airport)</li>
+          <li>Priority reservations at Daniel Boulud's land restaurants</li>
+          <li>Entrance to Reunion Cruise and President's Cruise events</li>
+          <li>Extended stay after disembarkation (when available)</li>
+          <li>Priority seating in all entertainment venues</li>
+          <li>Donation made in member's name to charity</li>
+          <li>Status match: RCL Crown & Anchor Pinnacle Club</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top:28px;">
+      <strong>Zenith Free Cruise:</strong> First complimentary cruise available at 3,000 points; additional free cruises every 3,000 points thereafter. Taxes & fees are an additional cost. Available for Caribbean or Bermuda sailings in a Veranda stateroom.
+    </div>
+  </section>
+
+  <!-- RCL CASINO -->
+  <section id="rcl-casino" class="section">
+    <div class="section-header">
+      <div class="section-label">Royal Caribbean International</div>
+      <h2 class="section-title">Club Royale — Casino Rewards</h2>
+      <p class="section-desc">Casino year runs <strong>April 1 – March 31</strong>. Earn 1 Tier Credit per $5 wagered on slots, or $10 on video poker. Table game credits vary by game type, average bet, and time played. Tier Credits reset annually; status held through remainder of earning year plus full following year.</p>
+    </div>
+
+    <div class="info-box">
+      <strong>Earning Estimates:</strong> 1 Tier Credit ≈ $5 slot machine coin-in. Prime (2,500 pts) ≈ $12,500 in slot play. Signature (25,000 pts) ≈ $125,000. Masters (100,000 pts) ≈ $500,000. Table game rates are more favorable — roughly 1 pt per $2–$5 depending on game. Actual results vary widely.
+    </div>
+
+    <div class="casino-tiers-grid" style="margin-top:28px;">
+      <div class="tier-card tier-choice">
+        <div class="tier-header">
+          <div class="tier-name">🎰 Choice</div>
+          <div class="tier-points"><span class="pts">0+</span><span class="pts-label">tier credits — base tier</span></div>
+        </div>
+        <div class="tier-stat">🎲 Starting tier — automatically enrolled when you use SeaPass in the casino</div>
+        <ul class="tier-benefits">
+          <li>Reward Points redeemable for FreePlay or onboard credit</li>
+          <li>Access to Club Royale exclusive offers and promotions</li>
+          <li>Instant Rewards (cruise certificates) based on single-sailing play</li>
+          <li>Crown & Anchor free play credit based on loyalty tier ($2–$6)</li>
+          <li>Access to special casino events and promotions</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-prime">
+        <div class="tier-header">
+          <div class="tier-name">🃏 Prime</div>
+          <div class="tier-points"><span class="pts">2,500</span><span class="pts-label">tier credits to qualify</span></div>
+        </div>
+        <div class="tier-stat">🎲 ≈ $12,500 in slot machine play • Most sought-after entry level for key benefits</div>
+        <ul class="tier-benefits">
+          <li><em>All Choice benefits, plus:</em></li>
+          <li><span class="highlight">Complimentary drinks</span> while playing in Casino Royale</li>
+          <li>Casino convenience fee waived (5% table charge removed)</li>
+          <li>Discounts on VOOM internet packages</li>
+          <li>Exclusive rates for family & friends (up to 2 additional staterooms)</li>
+          <li><span class="highlight">Annual Cruise Benefit:</span> complimentary interior stateroom (select sailings)</li>
+          <li>50%+ off drink packages, beach clubs & popular add-ons (current promo through Mar 31, 2026)</li>
+          <li>Special offers with partnership land-based casinos (MGM, Hard Rock)</li>
+          <li>Priority check-in and embarkation</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-signature">
+        <div class="tier-header">
+          <div class="tier-name">🌟 Signature</div>
+          <div class="tier-points"><span class="pts">25,000</span><span class="pts-label">tier credits to qualify</span></div>
+        </div>
+        <div class="tier-stat">🎲 ≈ $125,000 in slot play • Significant casino investment required</div>
+        <ul class="tier-benefits">
+          <li><em>All Prime benefits, plus:</em></li>
+          <li>Complimentary Wi-Fi (1 device) per sailing</li>
+          <li>$350 EFFY boutique onboard credit</li>
+          <li><span class="highlight">Annual Cruise Benefit:</span> complimentary <em>balcony</em> stateroom (select sailings)</li>
+          <li>Enhanced partnership casino offers</li>
+          <li>Dedicated casino host relationship</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-masters">
+        <div class="tier-header">
+          <div class="tier-name">👑 Masters</div>
+          <div class="tier-points"><span class="pts">100,000</span><span class="pts-label">tier credits to qualify</span></div>
+        </div>
+        <div class="tier-stat">🎲 ≈ $500,000 in slot play • Highest-roller tier — elite VIP treatment</div>
+        <ul class="tier-benefits">
+          <li><em>All Signature benefits, plus:</em></li>
+          <li>Welcome lunch with ship's officers</li>
+          <li>Access to <span class="highlight">Coastal Kitchen restaurant</span> (Oasis & Quantum class ships)</li>
+          <li>20% spa discount</li>
+          <li>Onboard credit based on sailing duration</li>
+          <li><span class="highlight">Annual Cruise Benefit:</span> complimentary <em>Grand Suite</em> (select sailings)</li>
+          <li>Personalized VIP gifts in stateroom</li>
+          <li>Dedicated senior casino host</li>
+          <li>Invitation to exclusive Masters events and private dinners</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top:28px;">
+      <strong>Annual Cruise Benefit Timing:</strong> The casino year runs April 1–March 31. Annual benefits are issued in late April — Masters first (Apr 22 morning), Signature (Apr 22 afternoon), then Prime members (Apr 23–25, highest credits first). Benefits must be used within the following year (through March 31 of next year). No reciprocal status with Celebrity Blue Chip Club.
+    </div>
+  </section>
+
+  <!-- CELEBRITY CASINO -->
+  <section id="cel-casino" class="section">
+    <div class="section-header">
+      <div class="section-label">Celebrity Cruises</div>
+      <h2 class="section-title">Blue Chip Club — Casino Rewards</h2>
+      <p class="section-desc">Casino year runs <strong>August 1 – July 31</strong>. Earn 1 Tier Credit per $5 wagered on slots, or $10 on video poker. Table game credits vary by game, average bet, and time played. Program was substantially updated effective August 1, 2025 — new tier levels and benefits apply.</p>
+    </div>
+
+    <div class="info-box">
+      <strong>New Program (Aug 2025+):</strong> The Blue Chip Club was restructured on August 1, 2025. Tier point thresholds changed significantly (fewer points needed per tier, but earning rates also adjusted). The program year now runs August 1–July 31. All members were placed in correct tiers at reset. No reciprocal status with Royal Caribbean Club Royale.
+    </div>
+
+    <div class="casino-tiers-grid" style="margin-top:28px;">
+      <div class="tier-card tier-pearl">
+        <div class="tier-header">
+          <div class="tier-name">🤍 Pearl</div>
+          <div class="tier-points"><span class="pts">1+</span><span class="pts-label">tier credits — base tier</span></div>
+        </div>
+        <div class="tier-stat">🎲 Entry level — earn any point in the casino to reach Pearl</div>
+        <ul class="tier-benefits">
+          <li>Reward Points redeemable for FreePlay in casino</li>
+          <li>Minimum 10,000 pts to redeem as onboard folio credit</li>
+          <li>Instant cruise rewards certificates based on single-sailing play</li>
+          <li>Access to Blue Chip Club exclusive casino offers</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-onyx">
+        <div class="tier-header">
+          <div class="tier-name">🖤 Onyx</div>
+          <div class="tier-points"><span class="pts">2,500</span><span class="pts-label">tier credits/year</span></div>
+        </div>
+        <div class="tier-stat">🎲 ≈ $12,500 in slot machine coin-in during earning period</div>
+        <ul class="tier-benefits">
+          <li><em>All Pearl benefits, plus:</em></li>
+          <li>Waived credit card cash advance fees in the casino</li>
+          <li>30% off enhanced Wi-Fi (Starlink-powered)</li>
+          <li>1 digital photo download</li>
+          <li>Exclusive casino promotions and offers</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-amethyst">
+        <div class="tier-header">
+          <div class="tier-name">💜 Amethyst</div>
+          <div class="tier-points"><span class="pts">10,000</span><span class="pts-label">tier credits/year</span></div>
+        </div>
+        <div class="tier-stat">🎲 ≈ $50,000 in slot play during the earning period</div>
+        <ul class="tier-benefits">
+          <li><em>All Onyx benefits, plus:</em></li>
+          <li>Complimentary drinks in the casino while gaming</li>
+          <li>1 digital photo download (upgraded offer)</li>
+          <li>Access to Blue Chip Club VIP events onboard</li>
+          <li>Exclusive rates for family & friends (up to 2 additional staterooms)</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-sapphire">
+        <div class="tier-header">
+          <div class="tier-name">💙 Sapphire</div>
+          <div class="tier-points"><span class="pts">25,000</span><span class="pts-label">tier credits/year</span></div>
+        </div>
+        <div class="tier-stat">🎲 ≈ $125,000 in slot play during the earning period</div>
+        <ul class="tier-benefits">
+          <li><em>All Amethyst benefits, plus:</em></li>
+          <li>2 digital photo downloads</li>
+          <li>Priority embarkation and debarkation (Ruby and above; check current terms)</li>
+          <li>Exclusive rates for family & friends</li>
+          <li><span class="cel-highlight">Annual Cruise Benefit</span> — complimentary sailing (select itineraries, taxes extra)</li>
+          <li>Partnership casino offers (land-based exclusive promotions)</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-sapphireplus">
+        <div class="tier-header">
+          <div class="tier-name">🔮 Sapphire Plus</div>
+          <div class="tier-points"><span class="pts">50,000</span><span class="pts-label">tier credits/year</span></div>
+        </div>
+        <div class="tier-stat">🎲 ≈ $250,000 in slot play during the earning period</div>
+        <ul class="tier-benefits">
+          <li><em>All Sapphire benefits, plus:</em></li>
+          <li>Enhanced casino host relationship</li>
+          <li>Complimentary Wi-Fi access</li>
+          <li>2 digital photo downloads</li>
+          <li>Enhanced exclusive rates for family & friends</li>
+          <li>Dedicated concierge service</li>
+          <li>VIP event access (invitation-based)</li>
+        </ul>
+      </div>
+
+      <div class="tier-card tier-ruby">
+        <div class="tier-header">
+          <div class="tier-name">♦️ Ruby</div>
+          <div class="tier-points"><span class="pts">150,000</span><span class="pts-label">tier credits/year</span></div>
+        </div>
+        <div class="tier-stat">🎲 ≈ $750,000 in slot play • Top tier — elite VIP treatment</div>
+        <ul class="tier-benefits">
+          <li><em>All Sapphire Plus benefits, plus:</em></li>
+          <li>Unlimited complimentary room service</li>
+          <li>Welcome lunch in the main dining room</li>
+          <li>Reserved show seating in The Theatre</li>
+          <li>Priority luggage delivery onboard</li>
+          <li><span class="cel-highlight">Onboard credit based on cruise length:</span> $50 (3–4 nights), $75 (5–6 nights), $100 (7+ nights)</li>
+          <li>3 digital photo downloads</li>
+          <li>Priority embarkation, debarkation, tenders, shore-side concierge</li>
+          <li><span class="cel-highlight">Annual Cruise Benefit</span> — complimentary sailing (select sailings, taxes extra)</li>
+          <li>Exclusive invitation-only casino events</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top:28px;">
+      <strong>Important 2025 Changes:</strong> Celebrity removed drink packages as a tier benefit (replaced with complimentary casino drinks for Amethyst+). Priority embarkation/debarkation is now only for Ruby tier. Photo package benefits were reduced but remain. The annual cruise benefit is available from Sapphire tier upward. Must book and sail by July 31, 2026 for current year's annual benefit.
+    </div>
+  </section>
+
+  <!-- SIDE BY SIDE COMPARISON -->
+  <section id="compare" class="section">
+    <div class="section-header">
+      <div class="section-label">Complete Comparison</div>
+      <h2 class="section-title">Royal Caribbean vs Celebrity</h2>
+      <p class="section-desc">How the two sister brands compare across ships, loyalty programs, and casino rewards — all in one view.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 style="font-family:'Playfair Display',serif; color:var(--white); margin-bottom:16px; font-size:1.4rem;">Fleet Overview</h3>
+    <div style="overflow-x:auto; border-radius:12px; border:1px solid var(--border);">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Royal Caribbean International</th>
+            <th>Celebrity Cruises</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Ships in 2026</td><td class="rcl-col">30 ships (Legend of the Seas debuts mid-2026)</td><td class="cel-col">15 ships (Xcel debuted Nov 2025)</td></tr>
+          <tr><td>Ship Classes</td><td class="rcl-col">Icon, Oasis, Quantum/Ultra, Voyager, Freedom, Radiance, Vision (7+ classes)</td><td class="cel-col">Edge, Solstice, Millennium, Expedition (4 classes)</td></tr>
+          <tr><td>Newest Class</td><td class="rcl-col">Icon Class — largest ships in the world (~250,000 GT, 5,600+ guests)</td><td class="cel-col">Edge Class — flagship modern luxury (~125,000–141,000 GT, ~2,900–3,260 guests)</td></tr>
+          <tr><td>Biggest Ship</td><td class="rcl-col">Icon of the Seas / Star of the Seas (248,663 GT)</td><td class="cel-col">Celebrity Xcel / Ascent / Beyond (≈141,420 GT)</td></tr>
+          <tr><td>Market Position</td><td class="rcl-col">Mainstream / family-friendly / adventure-focused</td><td class="cel-col">Premium / modern luxury / adults-oriented</td></tr>
+          <tr><td>Key Destinations 2026</td><td class="rcl-col">Caribbean, Bahamas, Mediterranean, Alaska, Europe, Asia, Australia</td><td class="cel-col">Mediterranean, Caribbean, Alaska, Asia, Australia, Galapagos</td></tr>
+          <tr><td>Private Destinations</td><td class="rcl-col">Perfect Day at CocoCay, Labadee (Haiti), Royal Beach Club Nassau, Royal Beach Club Cozumel (2026)</td><td class="cel-col">Access to Perfect Day at CocoCay (Beyond/Reflection sailings)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 style="font-family:'Playfair Display',serif; color:var(--white); margin-bottom:16px; font-size:1.4rem;">Loyalty Programs</h3>
+    <div style="overflow-x:auto; border-radius:12px; border:1px solid var(--border);">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Crown & Anchor Society (RCL)</th>
+            <th>Captain's Club (Celebrity)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Number of Tiers</td><td class="rcl-col">6 (Gold, Platinum, Emerald, Diamond, Diamond Plus, Pinnacle Club)</td><td class="cel-col">6 (Preview, Classic, Select, Elite, Elite Plus, Zenith)</td></tr>
+          <tr><td>How Points Are Earned</td><td class="rcl-col">1 pt/night standard cabin; 2 pts/night in suites booked at suite rate</td><td class="cel-col">2–24 pts/night based on cabin category (Inside=2, Balcony=3, Sky Suite=8, Iconic Suite=24)</td></tr>
+          <tr><td>Entry Level</td><td class="rcl-col">Gold — earn after first sailing (3+ pts)</td><td class="cel-col">Preview — free sign-up (no sailing needed); Classic after first point earned</td></tr>
+          <tr><td>Top Tier Points Required</td><td class="rcl-col">700 pts (Pinnacle Club)</td><td class="cel-col">3,000 pts (Zenith)</td></tr>
+          <tr><td>First "Major" Benefit Tier</td><td class="rcl-col">Diamond (80 pts) — free drinks & Crown Lounge</td><td class="cel-col">Elite (300 pts) — lounge access & cocktail hours</td></tr>
+          <tr><td>Free Daily Drinks</td><td class="rcl-col">Diamond: 4/day • Diamond Plus: 5/day • Pinnacle: 6/day</td><td class="cel-col">Zenith: Complimentary Beverage Package every sailing</td></tr>
+          <tr><td>Lounge Access</td><td class="rcl-col">Crown Lounge from Diamond (80 pts)</td><td class="cel-col">Captain's Club Lounge from Elite (300 pts) — breakfast + cocktail hours</td></tr>
+          <tr><td>Free Cruise Reward</td><td class="rcl-col">Pinnacle Club (700 pts): 7-night Caribbean balcony for 2; additional every 350 pts after</td><td class="cel-col">Zenith (3,000 pts): 7-night Caribbean/Bermuda Veranda for 2; additional every 3,000 pts</td></tr>
+          <tr><td>Internet Benefit</td><td class="rcl-col">10% (Gold) → 15% off (Platinum) → 2 free days (Diamond Plus)</td><td class="cel-col">10% off (Classic) → 25% off (Select) → included packages at higher tiers</td></tr>
+          <tr><td>Complimentary Laundry</td><td class="rcl-col">Discounted at Platinum; 1 free bag at Diamond Plus; Pinnacle gets comp every sailing</td><td class="cel-col">Select: 1 discounted bag (12+ nights) • Elite: 1 free bag • Elite Plus: 2 free bags</td></tr>
+          <tr><td>Status Match (2024)</td><td class="rcl-col">1-for-1 match to Celebrity Captain's Club and Silversea Venetian Society</td><td class="cel-col">1-for-1 match to RCL Crown & Anchor and Silversea Venetian Society</td></tr>
+          <tr><td>Points Never Expire?</td><td class="rcl-col">Yes — points are permanent (never expire)</td><td class="cel-col">Yes — Club Points never expire</td></tr>
+          <tr><td>Solo Traveler Bonus</td><td class="rcl-col">Solo paying double occupancy earns 2 pts/night</td><td class="cel-col">Solo in a stateroom earns double Club Points</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 style="font-family:'Playfair Display',serif; color:var(--white); margin-bottom:16px; font-size:1.4rem;">Casino Rewards</h3>
+    <div style="overflow-x:auto; border-radius:12px; border:1px solid var(--border);">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Club Royale (RCL)</th>
+            <th>Blue Chip Club (Celebrity)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Number of Tiers</td><td class="rcl-col">4 (Choice, Prime, Signature, Masters)</td><td class="cel-col">6 (Pearl, Onyx, Amethyst, Sapphire, Sapphire Plus, Ruby)</td></tr>
+          <tr><td>Program Year</td><td class="rcl-col">April 1 – March 31</td><td class="cel-col">August 1 – July 31</td></tr>
+          <tr><td>Slot Machine Earning Rate</td><td class="rcl-col">1 Tier Credit per $5 coin-in</td><td class="cel-col">1 Tier Credit per $5 coin-in</td></tr>
+          <tr><td>Video Poker Earning Rate</td><td class="rcl-col">1 Tier Credit per $10 coin-in</td><td class="cel-col">1 Tier Credit per $10 coin-in</td></tr>
+          <tr><td>First Significant Tier</td><td class="rcl-col">Prime (2,500 pts ≈ $12,500 slot play)</td><td class="cel-col">Amethyst (10,000 pts ≈ $50,000 slot play)</td></tr>
+          <tr><td>Complimentary Drinks While Gaming</td><td class="rcl-col">From Prime tier (2,500 pts)</td><td class="cel-col">From Amethyst tier (10,000 pts)</td></tr>
+          <tr><td>Top Tier Points</td><td class="rcl-col">Masters: 100,000 pts (≈$500,000 slot play)</td><td class="cel-col">Ruby: 150,000 pts (≈$750,000 slot play)</td></tr>
+          <tr><td>Annual Free Cruise</td><td class="rcl-col">Prime: Interior • Signature: Balcony • Masters: Grand Suite</td><td class="cel-col">Sapphire+: complimentary sailing (category varies); Ruby gets additional OBC</td></tr>
+          <tr><td>Wi-Fi Included</td><td class="rcl-col">Signature tier: 1 device included</td><td class="cel-col">Sapphire Plus and above; Onyx gets 30% off</td></tr>
+          <tr><td>VIP Dining Access</td><td class="rcl-col">Masters: Coastal Kitchen (Oasis/Quantum ships)</td><td class="cel-col">Ruby: Welcome lunch in main dining room</td></tr>
+          <tr><td>Onboard Credit</td><td class="rcl-col">Masters: OBC based on sailing duration</td><td class="cel-col">Ruby: $50–$100 OBC based on cruise length</td></tr>
+          <tr><td>Casino Convenience Fee Waived</td><td class="rcl-col">Prime tier and above (5% fee waived)</td><td class="cel-col">Onyx tier and above (cash advance fees waived)</td></tr>
+          <tr><td>Reciprocal Status (Cross-Brand)</td><td class="rcl-col">No — Club Royale and Blue Chip Club have NO reciprocal status</td><td class="cel-col">No — Blue Chip Club and Club Royale have NO reciprocal status</td></tr>
+          <tr><td>Land Casino Partnerships</td><td class="rcl-col">MGM Rewards, Hard Rock Unity (earn MGM points onboard)</td><td class="cel-col">MGM Rewards, partnership casino offers</td></tr>
+          <tr><td>Point Reset</td><td class="rcl-col">Resets April 1 each year; status held for remainder of earning year + full following year</td><td class="cel-col">Resets August 1; demotion limited to 1 tier at a time if inactive</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box" style="margin-top:28px;">
+      <strong>Key Takeaway:</strong> For casual cruisers, <span style="color:#6ba3ff;">Crown & Anchor</span> rewards come faster (Diamond at 80 pts ≈ 12 cruises) vs <span style="color:#5dd4e0;">Captain's Club</span> Elite (300 pts ≈ 14–17 cruises). However, Celebrity's point multiplier for suites and premium cabins is significantly higher — frequent suite guests may progress faster with Celebrity. Both programs now offer reciprocal status matching and the ability to direct points to a single preferred program via "Points Choice." Casino programs are entirely separate, with no cross-brand recognition.
+    </div>
+  </section>
+
+</div>
+
+<footer style="background:var(--bg2); border-top:1px solid var(--border); padding:24px; text-align:center; margin-top:60px;">
+  <p style="color:var(--muted); font-size:0.78rem;">Royal Caribbean Group — 2026 Reference Guide &nbsp;|&nbsp; Data current as of early 2026 &nbsp;|&nbsp; Subject to change without notice. Always verify current benefits at royalcaribbean.com and celebritycruises.com.</p>
+</footer>
+
+<script>
+  function showSection(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: document.querySelector('.nav-wrapper').offsetTop, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
